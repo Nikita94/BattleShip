@@ -6,4 +6,5 @@
 *.classpath
 *.class
 **/target
+**/out
 .idea
