@@ -4,5 +4,6 @@
 *.project
 *.settings
 *.classpath
+*.class
 **/target
 .idea
