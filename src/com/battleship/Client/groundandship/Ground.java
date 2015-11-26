@@ -1,4 +1,4 @@
-package com.battleship.groundandship;
+package com.battleship.Client.groundandship;
 
 /**
  * Created by nikita on 10.11.2015.
@@ -20,7 +20,7 @@ public class Ground extends JFrame {
     private     JPanel      panel3;
 
     private JPanel frame2;
-    private JButton [][]squere;
+    private final JButton [][]squere;
     private JButton [][]squere2;
 
 
@@ -65,7 +65,7 @@ public class Ground extends JFrame {
         panel2.setPreferredSize(new Dimension(640, 320));
         for(int y=0; y<10; y++){
             for(int x=0; x<10; x++){
-                squere[x][y]=new JButton(/*"("+x+","+y+")"*/); //создает новую кнопку
+                squere[x][y]=new JButton("X"); //создает новую кнопку
                 squere[x][y].setPreferredSize(new Dimension(55, 25));
                 panel2.add(squere[x][y]);
             }
@@ -88,8 +88,15 @@ public class Ground extends JFrame {
     private void initListeners() {
         squere[0][0].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                squere[0][0].setText("X"); //.setBackground(Color.green);
-                repaint();
+                if (squere[0][0].getText().equals("X")) {
+                    squere[0][0].setText("O"); //.setBackground(Color.green);
+                    repaint();
+                }
+                else {
+                    squere[0][0].setText("X"); //.setBackground(Color.green);
+                    repaint();
+                }
+
             }
         });
     }
