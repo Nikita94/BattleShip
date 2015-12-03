@@ -55,7 +55,12 @@ public class Ground extends JFrame {
         pack(); //Ёта команда подбирает оптимальный размер в зависимости от содержимого окна
         setVisible(true); //— этого момента приложение запущено!
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initListeners();
+
+        for(int y=0; y<10; y++) {
+            for (int x = 0; x < 10; x++) {
+                initListeners(x, y);
+            }
+        }
     }
 
     public void createPanel2(){
@@ -83,17 +88,17 @@ public class Ground extends JFrame {
             }
         }
 
-    }
+        }
 
-    private void initListeners() {
-        squere[0][0].addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (squere[0][0].getText().equals("X")) {
-                    squere[0][0].setText("O"); //.setBackground(Color.green);
-                    repaint();
-                }
-                else {
-                    squere[0][0].setText("X"); //.setBackground(Color.green);
+        private void initListeners ( int x, int y){
+            squere[x][y].addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (squere[x][y].getText().equals("X")) {
+                        squere[x][y].setText("O"); //.setBackground(Color.green);
+                        squere[x][y].
+                        repaint();
+                    } else {
+                        squere[x][y].setText("X"); //.setBackground(Color.green);
                     repaint();
                 }
 
