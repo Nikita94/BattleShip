@@ -8,11 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.Naming;
 
 /**
  * Created by nikita on 29.10.2015.
  */
 public class Ground extends JFrame {
+
+
+    private ClientImpl client;
+    private ServerBS server;
     private     JSplitPane  splitPaneV;
     private     JSplitPane  splitPaneH;
     private     JPanel      panel1;
@@ -107,4 +112,17 @@ public class Ground extends JFrame {
     }
 
 
+
+    public void doConnect() {
+        try {
+            client = new ClientImpl();
+            client.setGUI(this);
+            server = (ServerBS) Naming.lookup("localhost");
+            server.login(client);
+            //updateUsers(server.getConnected());
+            //connect.setText("Disconnect");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

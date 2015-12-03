@@ -9,4 +9,5 @@ import java.rmi.RemoteException;
 public interface ClientBS extends Remote {
     public String getName() throws RemoteException;
     public int sendCell() throws RemoteException;
+    public void tell(String st) throws RemoteException;
 }
